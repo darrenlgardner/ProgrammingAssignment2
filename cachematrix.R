@@ -45,13 +45,9 @@ cacheSolve <- function(matrix_obj, ...) {
   
   matrix_inv <- matrix_obj$getinverse()
   if (is.null(matrix_inv)) {
-#    message("NOT optimized, since cache is empty")
     # Inverse is not currently cached, so compute and cache it here
     matrix_inv <- solve(matrix_obj$get(), ...)
     matrix_obj$setinverse(matrix_inv)
-  }
-  else {
-#    message("Optimized through cache lookup")
   }
   matrix_inv
 
